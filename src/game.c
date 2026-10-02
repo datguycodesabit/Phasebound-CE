@@ -6,7 +6,7 @@ int32_t game_speed(uint8_t speed) {
     return speeds[speed < 3 ? speed : 0];
 }
 const char *game_mode_name(uint8_t mode) {
-    static const char *names[] = {"CUBE", "SHIP", "SPIDER", "BALL", "WAVE"};
+    static const char *names[] = {"CORE", "GLIDER", "BLINK", "TUMBLER", "BEAM"};
     return mode < MODE_COUNT ? names[mode] : "?";
 }
 static bool overlap(int x, int y, int w, int h, int a, int b, int c, int d) {

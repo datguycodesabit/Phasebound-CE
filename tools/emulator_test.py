@@ -14,7 +14,7 @@ parser.add_argument('--measure', action='store_true', help='Read timing counters
 args = parser.parse_args()
 build = ROOT / 'build'
 build.mkdir(exist_ok=True)
-mapping = (ROOT / 'bin/NEONDASH.map').read_text()
+mapping = (ROOT / 'bin/PHASEBND.map').read_text()
 
 def address(symbol):
     return re.search(r'(0x[0-9a-f]+)\s+_' + symbol + r'\b', mapping).group(1)
@@ -62,8 +62,8 @@ for i, command in enumerate(sequence):
         sequence[i] = f'{operation}|{unique}'
 config = {
     'rom': str(args.rom.resolve()),
-    'transfer_files': [str(ROOT / 'bin/NEONDASH.8xp')] + [str(ROOT / '.tools/clibs/clibs' / f'{n}.8xv') for n in ['libload', 'graphx', 'keypadc', 'fileioc']],
-    'target': {'name': 'NEONDASH', 'isASM': True}, 'sequence': sequence, 'hashes': hashes,
+    'transfer_files': [str(ROOT / 'bin/PHASEBND.8xp')] + [str(ROOT / '.tools/clibs/clibs' / f'{n}.8xv') for n in ['libload', 'graphx', 'keypadc', 'fileioc']],
+    'target': {'name': 'PHASEBND', 'isASM': True}, 'sequence': sequence, 'hashes': hashes,
 }
 path = build / 'emulator-test.json'
 path.write_text(json.dumps(config, indent=2))

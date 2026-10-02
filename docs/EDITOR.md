@@ -12,7 +12,7 @@ Tool 0 erases an object at the cursor first. If there is no object there, it era
 
 Undo records only successful changes. `editor_place` returns success for a valid no-op, so repeating an edit that already matches the level does not consume an undo slot or trigger an error in the UI. It returns failure for an invalid level/cursor or a full object table. After 32 edits, the oldest undo entry is discarded as the newest edit is recorded. Undo restores the prior tile, object (including a replaced or deleted object), or all spawn settings.
 
-The value selector cycles by tool: gravity objects use 0–1, speed objects use 0–2, mode objects and the spawn tool use 0–4. Other tools keep value 0. Values map to the level enums: gravity 0=down/1=up, speed 0–2, and modes Cube, Ship, Spider, Ball, Wave in enum order.
+The value selector cycles by tool: gravity objects use 0–1, speed objects use 0–2, mode objects and the spawn tool use 0–4. Other tools keep value 0. Values map to the level enums: gravity 0=down/1=up, speed 0–2, and player-facing forms Core (`MODE_CUBE`), Glider (`MODE_SHIP`), Blink (`MODE_SPIDER`), Tumbler (`MODE_BALL`), Beam (`MODE_WAVE`) in enum order.
 
 ## Calculator controls
 

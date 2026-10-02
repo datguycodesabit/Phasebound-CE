@@ -1,6 +1,6 @@
 # Credits and notices
 
-Neon Dash's game code, campaign layouts, and calculator graphics are original project work. The idea credit shown in the in-game help is fXXa.
+Phasebound's game code, campaign layouts, and calculator graphics are original project work. The idea credit shown in the in-game help is fXXa.
 
 The native build uses the [CE C/C++ Toolchain](https://github.com/CE-Programming/toolchain) and [CE Libraries](https://github.com/CE-Programming/libraries), including GraphX, keypad input, file I/O, and the CE library loader. Their licenses remain with their respective upstream projects; the toolchain repository is LGPL-3.0 and the CE Libraries repository is BSD-2-Clause.
 

@@ -53,7 +53,7 @@ static void show_message(const char *title,const char *message) {
 }
 static int menu(const char *title,const char *subtitle,const char *const *items,int count,int selected) {
     bool redraw=true;release_keys();
-    uint8_t screen=!strcmp(title,"NEON DASH")?1:!strcmp(title,"CAMPAIGN")?2:!strcmp(title,"PAUSED")?4:!strcmp(title,"CREATE")?7:!strcmp(title,"CUSTOM LEVEL")?8:!strcmp(title,"PLAY MODE")?9:10;
+    uint8_t screen=!strcmp(title,"PHASEBOUND")?1:!strcmp(title,"CAMPAIGN")?2:!strcmp(title,"PAUSED")?4:!strcmp(title,"CREATE")?7:!strcmp(title,"CUSTOM LEVEL")?8:!strcmp(title,"PLAY MODE")?9:10;
     for(;;) {
         if(redraw) {
             int first=selected/6*6;
@@ -261,11 +261,11 @@ static void settings(void) {
 static void help(void) {
     const char *pages[]={
         "2nd/UP act. CLEAR pause. DEL retry.",
-        "Cube: hold to jump again on landing.",
-        "Ship: hold to rise, release to fall.",
-        "Spider: press to teleport to ceiling.",
-        "Ball: press on a surface to flip.",
-        "Wave: hold up / release down.",
+        "Core: hold to jump again on landing.",
+        "Glider: hold rise; release fall.",
+        "Blink: press to teleport to ceiling.",
+        "Tumbler: press on a surface to flip.",
+        "Beam: hold up / release down.",
         "Yellow pads bounce; press near orbs.",
         "Portals change mode, speed or gravity.",
         "Practice: ALPHA checkpoint, MODE clear.",
@@ -281,7 +281,7 @@ int main(void) {
     const char *items[]={"Campaign","Endless","Create / custom levels","Settings","How to play / credits","Exit"};int selected=0;
     storage_load_profile(&profile);render_begin();ti_SetGCBehavior(gfx_End,render_begin);
     for(;;){
-        selected=menu("NEON DASH","A calculator-sized challenge",items,6,selected);
+        selected=menu("PHASEBOUND","Shift form. Defy gravity.",items,6,selected);
         if(selected<0||selected==5)break;
         if(selected==0)campaign_menu();
         else if(selected==1)play(-1,false,true,false);
